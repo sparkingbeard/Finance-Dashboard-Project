@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Dashboard from './pages/Dashboard'
 import Insights from './pages/Insights'
 import Transactions from './pages/Transactions'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="insights" element={<Insights />} />
           <Route path="transactions" element={<Transactions />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   )
