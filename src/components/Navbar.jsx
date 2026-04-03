@@ -5,8 +5,8 @@ import { HiMenu } from 'react-icons/hi'
 
 const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'Insights', path: '/insights' },
   { label: 'Transactions', path: '/transactions' },
+  { label: 'Insights', path: '/insights' },
 ]
 
 const linkClasses = ({ isActive }) =>
