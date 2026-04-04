@@ -15,8 +15,7 @@ const linkClasses = ({ isActive }) =>
     : 'text-[#06080A] hover:text-gray-300'
   }`
 
-function Navbar() {
-  const [role, setRole] = useState('Admin');
+function Navbar({ role, setRole }) {
   const [isOpen, setIsopen] = useState(false);
   return (
     <nav className="navbar bg-[#7297C5] p-4 flex items-center justify-between font-dm">
