@@ -5,7 +5,7 @@ function Footer() {
     return (
 
         <footer className="bg-[#000000] text-white py-4 text-center">
-            <p>© 2026 My Website | All rights reserved</p>
+            <p>© 2026 Finance Tracker | All rights reserved | Made with ❤️</p>
             <p className="mt-2">
                 <Link className="text-white hover:text-gray-300 mr-4">
                     Privacy Policy
