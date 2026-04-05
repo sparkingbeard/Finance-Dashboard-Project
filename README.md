@@ -117,7 +117,6 @@ npm run dev
 
 ### 📈 Insights
 ![Insights](./screenshots/insights.png)
-![Insights](./screenshots/insights.png)
 
 ## 👨‍💻 Author
 
