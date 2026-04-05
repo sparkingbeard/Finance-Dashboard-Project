@@ -10,11 +10,11 @@ import { useState } from 'react'
 function App() {
   const [role, setRole] = useState('Admin');
   return (
-    <div className="App font-inter bg-[#FFFFFF] h-screen">
+    <div className="App fon t-inter bg-[#FFFFFF] w-full min-h-screen">
       <BrowserRouter>
       <Navbar role={role} setRole={setRole} />
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />}/>
           <Route path="insights" element={<Insights />} />
           <Route path="transactions" element={<Transactions role={role} setRole={setRole} />} />
         </Routes>

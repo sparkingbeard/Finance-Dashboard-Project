@@ -1,12 +1,9 @@
 import React from 'react'
-import { useState } from 'react'
 
-
-function TransactionsTable({ transactions, setFilter, setSearch, role }) {
-    const [showForm, setShowForm] = useState(false);
+function TransactionsTable({ transactions, setFilter, setSearch, role, setShowForm, onDelete, onEdit }) {
     return (
         <div className="bg-[#0B0F19] p-4">
-            <div className="flex gap-10 items-center mb-4">
+            <div className="flex flex-wrap gap-4 items-center mb-4">
                 <h3 className="text-white">Transactions</h3>
                 {/* {filter} */}
                 <select className="bg-[#1A1F2E] text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -21,11 +18,11 @@ function TransactionsTable({ transactions, setFilter, setSearch, role }) {
                     type="text"
                     placeholder='Search Category'
                     onChange={(e) => setSearch(e.target.value)}
-                    className='bg-[#ffff] text-black border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 px-2 py-1'
+                    className='bg-[#ffff] text-black border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 px-2 py-1 '
                 ></input>
 
                 {/* {Sorting dropdown} */}
-                <select className="bg-[#1A1F2E] text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 px-2 py-1 ml-190"
+                <select className="bg-[#1A1F2E] text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 px-2 py-1"
                     onChange={(e) => { setSort(e.target.value) }}
                 >
                     <option value="asc"> Low → High  (Amount)</option>
@@ -33,55 +30,64 @@ function TransactionsTable({ transactions, setFilter, setSearch, role }) {
                 </select>
 
             </div>
-
-            <table className="w-full text-sm text-center">
-                <thead className="text-gray-400">
-                    <tr>
-                        <th className="px-4 py-3">Date</th>
-                        <th className="px-4 py-3">Amount</th>
-                        <th className="px-4 py-3">Category</th>
-                        <th className="px-4 py-3">Type</th>
-                        {role === "Admin" && <th className="px-4 py-3">Actions</th>}
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {transactions.map((t) => (
-                        <tr key={t.id} className="border-t border-gray-700 hover:bg-gray-800">
-
-                            <td className='text-blue-300 px-4 py-3'>{t.date}</td>
-                            <td className="text-white">₹{t.amount}</td>
-                            <td className='text-yellow-200'>{t.category}</td>
-                            <td
-                                className={
-                                    t.type === "income"
-                                        ? "text-green-400"
-                                        : "text-red-400"
-                                }
-                            >
-                                {t.type}
-                            </td>
-                            {role === "Admin" && (<td>
-                                <button className="text-blue-200 hover:text-blue-600">Edit</button>
-                                <button className="text-red-400 hover:text-red-600 ml-4">Delete</button>
-                            </td>)}
-
-                        </tr>
-                    ))}
-                </tbody>
-
-                {role === "Admin" && (
-                    <tfoot>
+            <div className="tableContainer overflow-x-auto">
+                <table className="w-full min-w-150 text-sm text-center">
+                    <thead className="text-gray-400">
                         <tr>
-                            <td colSpan="5" className="text-center py-2">
-                                <button className="text-green-200 hover:text-green-600 text-xl border rounded border-green-400 py-2 px-4"
-                                onClick={()=> setShowForm(true)}
-                                >Add Transaction</button>
-                            </td>
+                            <th className="px-4 py-3">Category</th>
+                            {role === "Admin" && <th className="px-4 py-3">Id</th>}
+                            <th className="px-4 py-3">Date</th>
+                            <th className="px-4 py-3">Amount</th>
+                            <th className="px-4 py-3">Type</th>
+                            {role === "Admin" && <th className="px-4 py-3">Actions</th>}
                         </tr>
-                    </tfoot>
-                )}
-            </table>
+                    </thead>
+
+                    <tbody>
+                        {transactions.map((t) => (
+                            <tr key={t.id} className="border-t border-gray-700 hover:bg-gray-800">
+
+                                <td className='text-yellow-200'>{t.category}</td>
+                                {role === "Admin" && <td className='text-blue-300 px-4 py-3'>{t.id}</td>}
+                                <td className='text-blue-300 px-4 py-3'>{t.date}</td>
+                                <td className="text-white">₹{t.amount}</td>
+                                <td
+                                    className={
+                                        t.type === "income"
+                                            ? "text-green-400"
+                                            : "text-red-400"
+                                    }
+                                >
+                                    {t.type}
+                                </td>
+                                {role === "Admin" && (<td>
+                                    <button className="text-blue-200 hover:text-blue-600"
+                                        onClick={() => onEdit(t)}
+                                    >Edit</button>
+                                    <button className="text-red-400 hover:text-red-600 ml-4"
+                                    onClick={() => onDelete(t.id)}
+                                    >Delete</button>
+                                </td>)}
+
+                            </tr>
+                        ))}
+                    </tbody>
+
+                    {role === "Admin" && (
+                        <tfoot className=''>
+                            <tr>
+                                <td colSpan="6" className="text-center py-4">
+                                    <button className="text-green-200 hover:text-green-600 text-xl border rounded border-green-400 py-2 px-4"
+                                        onClick={() => setShowForm(true)}
+                                    >Add Transaction</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    )}
+                </table>
+            </div>
+
+
         </div>
     );
 }
