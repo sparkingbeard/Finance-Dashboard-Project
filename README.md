@@ -1,16 +1,130 @@
-# React + Vite
+# 💰 Finance Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive **Finance Dashboard** built using React that allows users to manage transactions, visualize financial data, and gain meaningful insights into their spending behavior.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+### 📊 Dashboard
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Summary cards (Total Balance, Income, Expenses)
+* Interactive charts using Recharts
 
-## Expanding the ESLint configuration
+  * Balance trend (time-based)
+  * Category-wise spending breakdown
+  * Monthly savings visualization
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 💳 Transactions
+
+* View all transactions in a table
+* Add new transactions via modal form (Admin only)
+* Delete transactions (Admin only)
+* Search by category
+* Filter by income/expense
+* Sort by amount
+
+### 🔐 Role-Based UI (Frontend Simulation)
+
+* **Admin**
+
+  * Add / Delete/ Edit transactions
+* **Viewer**
+
+  * View-only access
+
+### 📈 Insights Page
+
+* Highest spending category
+* Monthly savings comparison
+* Smart observations based on data
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend:** React.js
+* **Styling:** Tailwind CSS
+* **Charts:** Recharts
+* **State Management:** React Hooks (useState)
+
+---
+
+## 📦 Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/sparkingbeard/Finance-Dashboard-Project
+
+# Navigate into project
+cd FINANCE DASHBOARD UI
+
+# Install dependencies
+npm install
+
+# Run the app
+npm run dev
+```
+
+---
+
+## 💡 How to Use
+
+* Add transactions using the **Add Transaction** button (Admin only)
+* Use filters to view **Income / Expense**
+* Search transactions by category
+* Sort transactions based on amount
+* Switch roles to see different UI behavior
+* Visit the **Insights page** to analyze spending patterns
+
+---
+
+## 📊 Example Insights
+
+* 🔥 Highest Spending Category: Rent
+* 📈 Monthly Trend: Savings improved
+* 💡 Observation: You are spending heavily on Rent
+
+---
+
+## 🎯 Key Concepts Used
+
+* Component-based architecture
+* Reusable UI components (cards, tables, forms)
+* Conditional rendering (RBAC)
+* Data transformation (filter, map, reduce)
+* Responsive design using Tailwind
+
+---
+
+## 🔮 Future Improvements
+
+* ✏️ Edit transaction functionality
+* 🔐 Backend integration (Spring Boot / Node.js)
+* 🔑 Authentication & authorization
+* 📤 Export data (CSV/PDF)
+* 📱 Improved mobile UI (card-based transactions)
+
+---
+
+## 📸 Screenshots
+
+### 📊 Dashboard
+![Dashboard](./screenshots/dashboard.png)
+
+### 💳 Transactions
+![Transactions](./screenshots/transactions.png)
+
+### 📈 Insights
+![Insights](./screenshots/insights.png)
+![Insights](./screenshots/insights.png)
+
+## 👨‍💻 Author
+
+**Tushar Bisen**
+
+---
+
+## ⭐ If you like this project
+
+Give it a star on GitHub ⭐
