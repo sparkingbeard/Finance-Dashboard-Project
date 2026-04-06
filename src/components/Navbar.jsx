@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import RoleSwitcher from './RoleSwitcher'
 import { HiMenu } from 'react-icons/hi'
 
@@ -17,18 +17,21 @@ const linkClasses = ({ isActive }) =>
 
 function Navbar({ role, setRole }) {
   const [isOpen, setIsopen] = useState(false);
+  const navigate = useNavigate();
   return (
     <nav className="navbar bg-[#7297C5] p-4 flex items-center justify-between font-dm">
       {/* {Left section} */}
       <div className="left flex items-center gap-4">
-        <div className="logo text-white font-semibold text-lg">Finance <span className='text-amber-200'>Tracker</span></div>
+        <div className="logo text-white font-semibold text-lg hover:cursor-pointer"
+        onClick={() => navigate('/')}
+        >Finance <span className='text-amber-200'>Tracker</span></div>
 
         <RoleSwitcher role={role} setRole={setRole} />
       </div>
 
       {/* {Right section} */}
 
-      <div className="left">
+      <div className="Right">
         <ul className="nav-links items-center gap-4 text-sm font-medium hidden md:flex">
           {navLinks.map((link) => (
             <li key={link.path}>
